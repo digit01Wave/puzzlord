@@ -4,6 +4,11 @@ import os
 import sys
 
 
+def _prevent_failure_if_git_is_not_available() -> None:
+    if os.environ.get("GIT_PYTHON_REFRESH") is None:
+        os.environ["GIT_PYTHON_REFRESH"] = "quiet"
+
+
 def main():
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings.dev")
     try:
@@ -14,6 +19,8 @@ def main():
             "available on your PYTHONPATH environment variable? Did you "
             "forget to activate a virtual environment?"
         ) from exc
+
+    _prevent_failure_if_git_is_not_available()
     execute_from_command_line(sys.argv)
 
 
