@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY", "FIXME_SECRET_KEY_GOES_HERE")
+SECRET_KEY = os.environ.get("SECRET_KEY", "9PZVMK3zEPpn8PE7")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -90,9 +90,15 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
-    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",},
-    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",},
-    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",},
+    {
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
+    },
 ]
 
 
@@ -157,7 +163,11 @@ LOGGING = {
         },
     },
     "loggers": {
-        "django": {"handlers": ["django"], "level": "DEBUG", "propagate": True,},
+        "django": {
+            "handlers": ["django"],
+            "level": "DEBUG",
+            "propagate": True,
+        },
         "puzzles.puzzle": {
             "handlers": ["puzzle"],
             "level": "DEBUG",
